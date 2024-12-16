@@ -9,12 +9,12 @@
         <button class="btn btn-ghost">Deny</button>
       </div>
     </div> -->
-    <div class="card-body">
+    <div class="card-body" >
       <h2 class="card-title text-xl">{{note.title}}</h2>
       <p>{{note.date | date}}</p>
       <p>{{note.content}}</p>
       <div class="card-actions justify-end">
-        <button [routerLink]="['/edit-note/'+note.id]" routerLinkActive="router-link-active"  class="btn bg-info">Editar</button>
+        <button [routerLink]="['/edit-note/'+note.id]" routerLinkActive="router-link-active"  class="btn btn-primary text-white">Editar</button>
         <button (click)="onDelete(note.id)" class="btn bg-red-500 hover:bg-red-700 text-white">Eliminar</button>
       </div>
     </div>

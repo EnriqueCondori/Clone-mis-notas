@@ -1,4 +1,4 @@
-<div class="mt-10">
+<div class="mt-3 bg-neutral-content">
   <app-tool-bar [showBackBtn]="true" [title]="'Editar Nota'"></app-tool-bar>
 
   <div class="container mx-auto p-3">
@@ -32,8 +32,9 @@
       ></textarea>
       <div class="flex justify-end">
         <button 
-          [disabled]="editNoteForm.invalid"
-          class="btn btn-outline btn-info"
+        type="submit"
+          [disabled]="!isModificado || editNoteForm.invalid"
+          class="btn btn-accent"
         >Editar Nota</button>
       </div>
     </form>

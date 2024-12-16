@@ -1,5 +1,5 @@
 <div class="mt-10">
-  <app-tool-bar [showBackBtn]="true" [title]="'Create Note'"></app-tool-bar>
+  <app-tool-bar [showBackBtn]="true" [title]="'Crear Nota'"></app-tool-bar>
 
   <div class="container mx-auto p-3">
     <form 
@@ -8,31 +8,31 @@
       class="flex flex-col"
     >
     <div class="mb-6 flex flex-col">
-      <label for="title" class="text-2xl mb-2">Title:</label>
+      <label for="title" class="text-2xl mb-2">Titulo:</label>
       <input 
         [(ngModel)]="noteCreated.title"
         [ngClass]="{'input-error': !noteForm.valid && noteForm.touched}"
         name="title" 
         type="text" 
-        placeholder="Note title" 
+        placeholder="No hay titulo" 
         class="input input-bordered w-full" 
         required
       />
       <ng-container *ngIf="!noteForm.valid && noteForm.touched">
-        <label for="title" class="text-right text-error mt-2">Title is required</label>
+        <label for="title" class="text-right text-error mt-2" style="color: red;">El titulo es requerido</label>
       </ng-container>
     </div>
-      <label for="content" class="text-2xl mb-2">Content:</label>
+      <label for="content" class="text-2xl mb-2">Contenido:</label>
       <textarea 
         [(ngModel)]="noteCreated.content"
         name="content" 
         class="textarea textarea-bordered mb-6" 
-        placeholder="Note Content" 
+        placeholder="No hay Contenido" 
         rows="10"
       ></textarea>
       <div class="flex justify-end">
         <button 
-          class="btn btn-outline btn-primary"
+          class="btn btn-outline btn-secondary shadow-lg"
           [disabled]="noteForm.invalid"
         >Crear Nota</button>
       </div>

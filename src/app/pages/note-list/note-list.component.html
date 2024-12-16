@@ -22,11 +22,11 @@
 <ng-container *ngIf="displayDeleteModal">
   <div class="modal opacity-100 pointer-events-auto">
     <div class="modal-box">
-      <h3 class="text-lg font-bold">Eliminar Nota</h3>
-      <p class="py-4">Estas seguro de eliminar la nota{{selectedNoteForDelete.title}}?</p>
+      <h3 class="text-lg font-bold">Eliminar</h3>
+      <p class="py-4">Estas seguro de eliminar la nota {{selectedNoteForDelete.title}}?</p>
       <div class="modal-action">
-        <button (click)="toggleModal()" class="btn">Cancelar</button>
-        <button (click)="deleteNote(selectedNoteForDelete.id)" class="btn btn-error">Eliminar</button>
+        <button (click)="toggleModal()" class="btn bg-accent text-white">Cancelar</button>
+        <button (click)="deleteNote(selectedNoteForDelete.id)" class="btn bg-red-500 hover:bg-red-700 text-white">Eliminar</button>
       </div>
     </div>
   </div>

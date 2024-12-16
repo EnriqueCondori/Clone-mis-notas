@@ -19,6 +19,7 @@ import { NotesService } from '../../services/notes.service';
 export class EditNoteComponent implements OnInit {
   editNoteForm: FormGroup;
   noteId!: string;
+  isModificado:boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -29,6 +30,9 @@ export class EditNoteComponent implements OnInit {
     this.editNoteForm = fb.group({
       title: ['', Validators.required],
       content: [''],
+    });
+    this.editNoteForm.valueChanges.subscribe(() => {
+      this.isModificado = this.editNoteForm.dirty; // Se activa cuando hay cambios
     });
   }
 
