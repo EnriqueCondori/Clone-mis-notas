@@ -2,12 +2,12 @@
   <div class="flex justify-between p-3 my-4">
     <div class="flex items-center">
       <ng-container *ngIf="showBackBtn">
-        <button class="btn btn-neutral mr-4" routerLink="/">Back</button>
+        <button class="btn btn-secondary mr-4" routerLink="/">Atras</button>
       </ng-container>
-      <h1 class="text-5xl">{{title}}</h1>
+      <h1 class="text-4xl">{{title}}</h1>
     </div>
     <ng-container *ngIf="showCreateBtn">
-      <a class="btn btn-primary" routerLink="/create-note">Create Note</a>
+      <a class="btn btn-secondary" routerLink="/create-note">Crear Nota</a>
     </ng-container>
   </div>
 </div>

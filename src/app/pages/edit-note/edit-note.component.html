@@ -1,5 +1,5 @@
 <div class="mt-10">
-  <app-tool-bar [showBackBtn]="true" [title]="'Edit Note'"></app-tool-bar>
+  <app-tool-bar [showBackBtn]="true" [title]="'Editar Nota'"></app-tool-bar>
 
   <div class="container mx-auto p-3">
     <form 
@@ -8,7 +8,7 @@
       class="flex flex-col"
     >
     <div class="mb-6 flex flex-col">
-      <label for="title" class="text-2xl mb-2">Title:</label>
+      <label for="title" class="text-2xl mb-2">Titulo:</label>
       <input 
         formControlName="title"
         [ngClass]="{'input-error': editNoteForm.get('title')?.touched && editNoteForm.get('title')?.invalid}"
@@ -19,10 +19,10 @@
         required
       />
       <ng-container *ngIf="editNoteForm.get('title')?.touched && editNoteForm.get('title')?.invalid">
-        <label for="title" class="text-right text-error mt-2">Title is required</label>
+        <label for="title" class="text-right text-error mt-2">Se requiere el titulo</label>
       </ng-container>
     </div>
-      <label for="content" class="text-2xl mb-2">Content:</label>
+      <label for="content" class="text-2xl mb-2">Contenido:</label>
       <textarea 
         formControlName="content"
         name="content" 
@@ -33,8 +33,8 @@
       <div class="flex justify-end">
         <button 
           [disabled]="editNoteForm.invalid"
-          class="btn btn-outline btn-primary"
-        >Edit Note</button>
+          class="btn btn-outline btn-info"
+        >Editar Nota</button>
       </div>
     </form>
   </div>
