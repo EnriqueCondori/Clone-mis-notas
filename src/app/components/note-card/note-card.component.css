@@ -1,0 +1,5 @@
+.custom-scroll-container {
+      max-height: 100px; /* Altura máxima antes de mostrar scroll */
+      overflow-y: auto;
+      padding-right: 4px; /* Espacio para el scroll */
+    }
