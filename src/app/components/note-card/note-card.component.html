@@ -1,22 +1,20 @@
 <div class="p-3" [ngStyle]="{'width': cardWidth}">
   <div class="card bg-accent text-accent-content" [ngStyle]="{'height': cardHeight}">
-    <!-- <div class="card-body items-center text-center">
-      <h2 class="card-title">{{note.title}}</h2>
-      <p>{{note.content}}</p>
-      <p>{{note.date}}</p>
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary">Accept</button>
-        <button class="btn btn-ghost">Deny</button>
-      </div>
-    </div> -->
-    <div class="card-body" >
+
+    <div class="card-body " >
+      <div class=" justify-start">
       <h2 class="card-title text-xl">{{note.title}}</h2>
       <p>{{note.date | date}}</p>
-      <!-- scroll del texto -->
-      <div class="custom-scroll-container"> 
-      <p>{{note.content}}</p>
       </div>
-      <div class="card-actions justify-end">
+      <!-- scroll del texto -->
+       <div class="">
+      <div class="custom-scroll-container "> 
+      
+        <p class="text-sm text-justify">{{note.content}}</p>
+      
+      </div>
+      </div>
+      <div class="card-actions justify-end mt-auto">
         <button [routerLink]="['/edit-note/'+note.id]" routerLinkActive="router-link-active"  class="btn btn-primary text-white">Editar</button>
         <button (click)="onDelete(note.id)" class="btn bg-red-500 hover:bg-red-700 text-white">Eliminar</button>
       </div>
