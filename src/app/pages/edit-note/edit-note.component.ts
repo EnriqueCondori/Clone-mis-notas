@@ -55,4 +55,12 @@ export class EditNoteComponent implements OnInit {
       this.router.navigate(['/'])
     }
   }
+  colors=[
+    '[#7ac8e9]',
+    'secondary',
+    'accent',
+    '[#b6e346]',
+    '[#FF5733]',
+    '[#f57cef]',
+  ]
 }

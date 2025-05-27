@@ -1,0 +1,10 @@
+.outline {
+  outline: 2px solid #000;       /* Borde negro */
+  outline-offset: 2px;           /* Espacio entre el borde y el elemento */
+  /* Alternativa con sombra para mejor visibilidad */
+  box-shadow: 0 0 0 2px white, 0 0 0 4px currentColor;
+}
+button:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}

@@ -16,6 +16,7 @@ export class CreateNoteComponent {
   noteCreated: Partial<Note> = {
     title: '',
     content: '',
+    color:'',
   };
 
   constructor(private noteService: NotesService, private router: Router) {}
@@ -26,4 +27,12 @@ export class CreateNoteComponent {
       this.router.navigate(['/']);
     }
   }
+  colors=[
+    '[#7ac8e9]',
+    'secondary',
+    'accent',
+    '[#b6e346]',
+    '[#FF5733]',
+    '[#f57cef]',
+  ]
 }

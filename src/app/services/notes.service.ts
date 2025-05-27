@@ -12,6 +12,7 @@ export class NotesService {
       id: (this.notes.length + 1).toString(),
       title: note.title ?? '',
       content: note.content ?? '',
+      color: note.color ?? 'accent',
       date: new Date().toString(),
     };
 

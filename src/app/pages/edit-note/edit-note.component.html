@@ -1,41 +1,28 @@
-<div class="mt-3 bg-neutral-content">
+<div class="mt-2 bg-[#ecf0f1] rounded-lg shadow-lg">
   <app-tool-bar [showBackBtn]="true" [title]="'Editar Nota'"></app-tool-bar>
 
-  <div class="container mx-auto p-3">
-    <form 
-      [formGroup]="editNoteForm"
-      (ngSubmit)="onSubmit()"
-      class="flex flex-col"
-    >
-    <div class="mb-6 flex flex-col">
-      <label for="title" class="text-2xl mb-2">Titulo:</label>
-      <input 
-        formControlName="title"
-        [ngClass]="{'input-error': editNoteForm.get('title')?.touched && editNoteForm.get('title')?.invalid}"
-        name="title" 
-        type="text" 
-        placeholder="Note title" 
-        class="input input-bordered w-full" 
-        required
-      />
-      <ng-container *ngIf="editNoteForm.get('title')?.touched && editNoteForm.get('title')?.invalid">
-        <label for="title" class="text-right text-error mt-2">Se requiere el titulo</label>
-      </ng-container>
-    </div>
+  <div class="container mx-auto p-3 rounded-full">
+    <form [formGroup]="editNoteForm" (ngSubmit)="onSubmit()" class="flex flex-col">
+      <div class="mb-6 flex flex-col">
+        <label for="title" class="text-2xl mb-2">Titulo:</label>
+        <input formControlName="title"
+          [ngClass]="{'input-error': editNoteForm.get('title')?.touched && editNoteForm.get('title')?.invalid}"
+          name="title" type="text" placeholder="Note title" class="input input-bordered w-full" required />
+        <ng-container *ngIf="editNoteForm.get('title')?.touched && editNoteForm.get('title')?.invalid">
+          <label for="title" class="text-right text-error mt-2">Se requiere el titulo</label>
+        </ng-container>
+      </div>
       <label for="content" class="text-2xl mb-2">Contenido:</label>
-      <textarea 
-        formControlName="content"
-        name="content" 
-        class="textarea textarea-bordered mb-6" 
-        placeholder="Note Content" 
-        rows="10"
-      ></textarea>
+      <textarea formControlName="content" name="content" class="textarea textarea-bordered mb-6"
+        placeholder="Note Content" rows="10"></textarea>
+      <label for="color" class="text-2xl mb-2">Color:</label>
+      <div class="flex flex-wrap gap-2 mb-10 bg-[#ecf0f1]" role="group" data-theme="lemonade" >
+        <button *ngFor="let color of colors" class="btn btn-circle   rounded-full" [ngClass]="'bg-'+color">
+        </button>
+      </div>
       <div class="flex justify-end">
-        <button 
-        type="submit"
-          [disabled]="!isModificado || editNoteForm.invalid"
-          class="btn btn-accent"
-        >Editar Nota</button>
+        <button type="submit" [disabled]="!isModificado || editNoteForm.invalid" class="btn btn-accent">Editar
+          Nota</button>
       </div>
     </form>
   </div>

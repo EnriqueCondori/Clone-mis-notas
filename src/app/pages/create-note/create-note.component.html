@@ -30,6 +30,16 @@
         placeholder="No hay Contenido" 
         rows="10"
       ></textarea>
+      <!-- colores -->
+      <label for="color" class="text-2xl mb-2">Color:</label>
+      <div class="flex flex-wrap gap-2 mb-4 " role="group" data-theme="lemonade">
+      
+          <button *ngFor="let color of colors"
+          class="btn btn-circle   rounded-full" [ngClass]="'bg-'+color" >
+          
+          </button>
+         
+        </div>
       <div class="flex justify-end">
         <button 
           class="btn btn-active btn-secondary "
