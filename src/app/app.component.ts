@@ -10,11 +10,13 @@ import { NotesService } from './services/notes.service';
   styleUrl: './app.component.css',
   standalone: true,
 })
+
+
 export class AppComponent implements OnInit{
   constructor(private noteService: NotesService) {
   }
   
   ngOnInit(): void {
-    this.noteService.loadNotes(localStorage);
+    this.noteService.loadNotes();
   }
 }

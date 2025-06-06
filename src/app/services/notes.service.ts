@@ -6,6 +6,14 @@ import { Note } from '../models/note.model';
 })
 export class NotesService {
   notes: Note[] = [];
+  private storage: Storage| null=null;
+
+    constructor() {
+    // Verifica si localStorage está disponible
+    if (typeof localStorage !== 'undefined') {
+      this.storage = localStorage;
+    }
+  }
 
   createNote(note: Partial<Note>) {
     const newNote: Note = {
@@ -48,14 +56,18 @@ export class NotesService {
     return this.notes.find((note) => note.id === noteId);
   }
 
-  loadNotes(localStorage: Storage) {
+  loadNotes() {
+    if(this.storage){
     const storedNotes = localStorage?.getItem('notes')
     if (storedNotes) {
       this.notes = JSON.parse(storedNotes);
     }
   }
+}
 
   persistNotes() {
+    if(this.storage){
     localStorage.setItem('notes', JSON.stringify(this.notes));
   }
+}
 }
