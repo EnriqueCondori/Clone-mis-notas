@@ -65,7 +65,8 @@ export class EditNoteComponent implements OnInit {
     '#f57cef',
   ];
   onColorSelected(color:string):void{
-    this.editNoteForm.get('color')?.setValue(color)
+    this.editNoteForm.get('color')?.setValue(color);
+    this.isModificado=true;
     console.log('Cambio el color'+color);
   }
 }
