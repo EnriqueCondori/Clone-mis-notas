@@ -37,5 +37,6 @@ export class CreateNoteComponent {
   ];
   onColorSelected(color:string):void{
     this.noteCreated.color=color;
+    console.log(color);
   }
 }

@@ -1,5 +1,8 @@
 <div class="p-3 flex flex-col" [ngStyle]="{'width': cardWidth}">
-  <div class="card bg-accent text-accent-content flex-grow" >
+  <div class="card text-accent-content flex-grow" 
+  [ngClass]="note.color.startsWith('#') ? '' : 'bg-' + note.color"
+     [style.background]="note.color.startsWith('#') ? note.color : ''"
+  >
 
     <div class="card-body flex flex-col flex-grow" >
       <div class=" justify-start">

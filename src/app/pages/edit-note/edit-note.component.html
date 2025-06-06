@@ -1,4 +1,7 @@
-<div class="mt-2 bg-[#ecf0f1] rounded-lg shadow-lg">
+<div class="mt-2 rounded-lg shadow-lg "
+  [ngClass]="editNoteForm.get('color')?.value?.startsWith('#') ? '' : 'bg-' + editNoteForm.get('color')?.value"
+  [style.background]="editNoteForm.get('color')?.value?.startsWith('#') ? editNoteForm.get('color')?.value : ''">
+
   <app-tool-bar [showBackBtn]="true" [title]="'Editar Nota'"></app-tool-bar>
 
   <div class="container mx-auto p-3 rounded-full">
@@ -21,6 +24,7 @@
           [ngClass]="color.startsWith('#') ? '' : 'bg-' + color" [style.background]="color.startsWith('#') ? color : ''"
           (click)="onColorSelected(color)">
         </button>
+        <p>color selecionado: {{editNoteForm.get('color')?.value}}</p>
       </div>
       <div class="flex justify-end">
         <button type="submit" [disabled]="!isModificado || editNoteForm.invalid" class="btn btn-accent">Editar
