@@ -28,11 +28,14 @@ export class CreateNoteComponent {
     }
   }
   colors=[
-    '[#7ac8e9]',
+    '#7ac8e9',
     'secondary',
     'accent',
-    '[#b6e346]',
-    '[#FF5733]',
-    '[#f57cef]',
-  ]
+    '#b6e346',
+    '#FF5733',
+    '#f57cef',
+  ];
+  onColorSelected(color:string):void{
+    this.noteCreated.color=color;
+  }
 }

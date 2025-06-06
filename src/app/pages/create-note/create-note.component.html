@@ -2,49 +2,31 @@
   <app-tool-bar [showBackBtn]="true" [title]="'Crear Nota'"></app-tool-bar>
 
   <div class="container mx-auto p-3">
-    <form 
-      #noteForm="ngForm" 
-      (ngSubmit)="onSubmit(noteForm)" 
-      class="flex flex-col"
-    >
-    <div class="mb-6 flex flex-col">
-      <label for="title" class="text-2xl mb-2">Titulo:</label>
-      <input 
-        [(ngModel)]="noteCreated.title"
-        [ngClass]="{'input-error': !noteForm.valid && noteForm.touched}"
-        name="title" 
-        type="text" 
-        placeholder="No hay titulo" 
-        class="input input-bordered w-full" 
-        required
-      />
-      <ng-container *ngIf="!noteForm.valid && noteForm.touched">
-        <label for="title" class="text-right text-error mt-2" style="color: red;">El titulo es requerido</label>
-      </ng-container>
-    </div>
+    <form #noteForm="ngForm" (ngSubmit)="onSubmit(noteForm)" class="flex flex-col">
+      <div class="mb-6 flex flex-col">
+        <label for="title" class="text-2xl mb-2">Titulo:</label>
+        <input [(ngModel)]="noteCreated.title" [ngClass]="{'input-error': !noteForm.valid && noteForm.touched}"
+          name="title" type="text" placeholder="No hay titulo" class="input input-bordered w-full" required />
+        <ng-container *ngIf="!noteForm.valid && noteForm.touched">
+          <label for="title" class="text-right text-error mt-2" style="color: red;">El titulo es requerido</label>
+        </ng-container>
+      </div>
       <label for="content" class="text-2xl mb-2">Contenido:</label>
-      <textarea 
-        [(ngModel)]="noteCreated.content"
-        name="content" 
-        class="textarea textarea-bordered mb-6" 
-        placeholder="No hay Contenido" 
-        rows="10"
-      ></textarea>
+      <textarea [(ngModel)]="noteCreated.content" name="content" class="textarea textarea-bordered mb-6"
+        placeholder="No hay Contenido" rows="10"></textarea>
       <!-- colores -->
       <label for="color" class="text-2xl mb-2">Color:</label>
       <div class="flex flex-wrap gap-2 mb-4 " role="group" data-theme="lemonade">
-      
-          <button *ngFor="let color of colors"
-          class="btn btn-circle   rounded-full" [ngClass]="'bg-'+color" >
-          
-          </button>
-         
-        </div>
+
+        <button *ngFor="let color of colors" class=" w-10 h-10  rounded-full" type="button"
+          [ngClass]="color.startsWith('#') ? '' : 'bg-' + color" [style.background]="color.startsWith('#') ? color : ''"
+          (click)="onColorSelected(color)">
+
+        </button>
+
+      </div>
       <div class="flex justify-end">
-        <button 
-          class="btn btn-active btn-secondary "
-          [disabled]="noteForm.invalid"
-        >Crear Nota</button>
+        <button class="btn btn-active btn-secondary " [disabled]="noteForm.invalid">Crear Nota</button>
       </div>
     </form>
   </div>

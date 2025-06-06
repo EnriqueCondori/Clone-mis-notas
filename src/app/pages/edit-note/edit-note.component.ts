@@ -29,7 +29,7 @@ export class EditNoteComponent implements OnInit {
   ) {
     this.editNoteForm = fb.group({
       title: ['', Validators.required],
-      content: [''],
+      content: [''], color:['']
     });
     this.editNoteForm.valueChanges.subscribe(() => {
       this.isModificado = this.editNoteForm.dirty; // Se activa cuando hay cambios
@@ -43,6 +43,7 @@ export class EditNoteComponent implements OnInit {
       if (noteForEdit) {
         this.editNoteForm.get('title')?.setValue(noteForEdit.title);
         this.editNoteForm.get('content')?.setValue(noteForEdit.content);
+        this.editNoteForm.get('color')?.setValue(noteForEdit.color);
       } else {
         this.router.navigate(['/']);
       }
@@ -55,12 +56,16 @@ export class EditNoteComponent implements OnInit {
       this.router.navigate(['/'])
     }
   }
-  colors=[
-    '[#7ac8e9]',
+    colors=[
+    '#7ac8e9',
     'secondary',
     'accent',
-    '[#b6e346]',
-    '[#FF5733]',
-    '[#f57cef]',
-  ]
+    '#b6e346',
+    '#FF5733',
+    '#f57cef',
+  ];
+  onColorSelected(color:string):void{
+    this.editNoteForm.get('color')?.setValue(color)
+    console.log('Cambio el color'+color);
+  }
 }
