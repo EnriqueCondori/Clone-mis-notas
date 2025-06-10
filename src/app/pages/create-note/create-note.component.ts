@@ -27,6 +27,7 @@ export class CreateNoteComponent {
       this.router.navigate(['/']);
     }
   }
+
   colors=[
     '#7ac8e9',
     'secondary',
@@ -34,9 +35,11 @@ export class CreateNoteComponent {
     '#b6e346',
     '#FF5733',
     '#f57cef',
-  ];
-  onColorSelected(color:string):void{
-    this.noteCreated.color=color;
-    console.log(color);
+  ]
+  onColorSelected(color: string): void {
+    console.log('Color selected:', color);
+    this.noteCreated.color = color; 
+  console.log('Estado actual de la nota:',JSON.stringify( this.noteCreated));
   }
+  
 }

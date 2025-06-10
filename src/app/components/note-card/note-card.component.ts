@@ -12,6 +12,14 @@ import { RouterModule } from '@angular/router';
 })
 export class NoteCardComponent {
   @Input() note!: Note;
+
+  ngOninit() {
+    console.log('Color recibido',this.note.color);
+    console.log('Nota recibida', this.note);
+  }
+
+
+
   @Output() deleteEvent: EventEmitter<string> = new EventEmitter<string>();
 
   cardHeight = '290px';
